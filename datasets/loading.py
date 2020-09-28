@@ -58,12 +58,14 @@ def load_uci_data(dataset):
     with open(data_path, 'r') as f:
         for line in f:
             split_line = line.split(",")
-            x.append([float(x) for x in split_line[start_idx:end_idx]])
-            label = split_line[label_idx]
-            if not label in classes:
-                classes[label] = class_counter
-                class_counter += 1
-            y.append(classes[label])
+            
+            if len(split_line) >= end_idx - start_idx + 1:
+                x.append([float(x) for x in split_line[start_idx:end_idx]])
+                label = split_line[label_idx]
+                if not label in classes:
+                    classes[label] = class_counter
+                    class_counter += 1
+                y.append(classes[label])
     y = np.array(y, dtype=int)
     x = np.array(x, dtype=float)
     mean = x.mean(0)

@@ -129,7 +129,8 @@ def train(args):
     # evaluation
     model.eval()
     logging.info("Decoding embeddings.")
-    cost = model.decode_tree(similarities, fast_decoding=args.fast_decoding)
+    tree = model.decode_tree(fast_decoding=args.fast_decoding)
+    cost = dasgupta_cost(tree, similarities)
     logging.info("{}:\t{:.4f}".format("Dasgupta's cost", cost))
     return
 

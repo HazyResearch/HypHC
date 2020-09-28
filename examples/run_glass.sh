@@ -13,6 +13,5 @@ python train.py --dataset glass \
                 --anneal_factor 0.75 \
                 --init_size 0.05 \
                 --num_samples 100000 \
-                --sampling all_pairs \
                 --fast_decoding true \
                 --seed 0 \

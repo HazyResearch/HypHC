@@ -12,6 +12,4 @@ python train.py --dataset iris \
                 --anneal_every 30 \
                 --anneal_factor 0.5 \
                 --init_size 5e-2 \
-                --num_samples 10000 \
-                --sampling all_pairs \
-                # --sampling nns \
+                --num_samples 50000 \
