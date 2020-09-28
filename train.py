@@ -14,7 +14,8 @@ import optim
 from config import config_args
 from datasets.hc_dataset import HCDataset
 from datasets.loading import load_data
-from model.hhc import HHC
+from model.hyphc import HypHC
+from utils.metrics import dasgupta_cost
 from utils.training import add_flags_from_config, get_savedir
 
 
@@ -59,7 +60,7 @@ def train(args):
     dataloader = data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=8, pin_memory=True)
 
     # create model
-    model = HHC(dataset.n_nodes, args.rank, args.temperature, args.init_size, args.margin, args.max_scale)
+    model = HypHC(dataset.n_nodes, args.rank, args.temperature, args.init_size, args.margin, args.max_scale)
     model.to("cuda")
 
     # create optimizer
@@ -91,7 +92,9 @@ def train(args):
         # keep best embeddings
         if (epoch + 1) % args.eval_every == 0:
             model.eval()
-            cost = model.decode_tree(similarities, fast_decoding=args.fast_decoding)
+            tree = model.decode_tree(fast_decoding=args.fast_decoding)
+
+            cost = dasgupta_cost(tree, similarities)
             logging.info("{}:\t{:.4f}".format("Dasgupta's cost", cost))
             if cost < best_cost:
                 counter = 0
