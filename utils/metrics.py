@@ -1,8 +1,8 @@
 """Evaluation utils."""
 
 import numpy as np
-from mst.mst import reorder
 
+from mst import reorder
 from utils.tree import descendants_traversal, descendants_count
 
 

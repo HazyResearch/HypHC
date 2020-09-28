@@ -12,7 +12,9 @@ python>=3.5
 
 ```pip install -r requirements.txt``` 
 
-Set environm
+Install ```mst``` and ```unionfind``` packages. 
+
+```python setup.py build_ext --inplace```
 
 #### Usage
 
@@ -22,7 +24,7 @@ First, set environment variables:
 
 Then, train HypHC:
 ```
-python run.py
+python train.py
     optional arguments:
       -h, --help            show this help message and exit
       --seed SEED

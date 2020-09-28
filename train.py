@@ -10,7 +10,7 @@ import torch
 import torch.utils.data as data
 from tqdm import tqdm
 
-import optimizers
+import optim
 from config import config_args
 from datasets.hc_dataset import HCDataset
 from datasets.loading import load_data
@@ -63,7 +63,7 @@ def train(args):
     model.to("cuda")
 
     # create optimizer
-    Optimizer = getattr(optimizers, args.optimizer)
+    Optimizer = getattr(optim, args.optimizer)
     optimizer = Optimizer(model.parameters(), args.learning_rate)
 
     # train model
@@ -74,9 +74,6 @@ def train(args):
     for epoch in range(args.epochs):
         model.train()
         total_loss = 0.0
-        if (epoch + 1) % args.resample_every == 0:
-            dataset.generate_triples(num_samples=args.num_samples)
-            dataloader = data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
         with tqdm(total=len(dataloader), unit='ex') as bar:
             for step, (triple_ids, triple_similarities) in enumerate(dataloader):
                 triple_ids = triple_ids.cuda()
