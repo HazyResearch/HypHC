@@ -60,7 +60,7 @@ def train(args):
     dataloader = data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=8, pin_memory=True)
 
     # create model
-    model = HypHC(dataset.n_nodes, args.rank, args.temperature, args.init_size, args.margin, args.max_scale)
+    model = HypHC(dataset.n_nodes, args.rank, args.temperature, args.init_size, args.max_scale)
     model.to("cuda")
 
     # create optimizer

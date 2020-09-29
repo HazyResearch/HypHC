@@ -17,7 +17,6 @@ config_args = {
     "dtype": "double",
     "rank": 2,
     "temperature": 0.01,
-    "margin": 0.0,
     "init_size": 1e-3,
     "anneal_every": 20,
     "anneal_factor": 1.0,

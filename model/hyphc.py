@@ -15,12 +15,11 @@ class HypHC(nn.Module):
     Hyperbolic embedding model for hierarchical clustering.
     """
 
-    def __init__(self, n_nodes=1, rank=2, temperature=0.05, init_size=1e-3, margin=0.0, max_scale=1. - 1e-3):
+    def __init__(self, n_nodes=1, rank=2, temperature=0.05, init_size=1e-3, max_scale=1. - 1e-3):
         super(HypHC, self).__init__()
         self.n_nodes = n_nodes
         self.embeddings = nn.Embedding(n_nodes, rank)
         self.temperature = temperature
-        self.loss_fn = torch.nn.MarginRankingLoss(margin=margin)
         self.scale = nn.Parameter(torch.Tensor([init_size]), requires_grad=True)
         self.embeddings.weight.data = project(
             self.scale * (2 * torch.rand((n_nodes, rank)) - 1.0)
@@ -38,7 +37,7 @@ class HypHC(nn.Module):
 
     def normalize_embeddings(self, embeddings):
         """Normalize leaves embeddings to have the lie on a diameter."""
-        min_scale = 1e-2  # self.init_size
+        min_scale = 1e-2 #self.init_size
         max_scale = self.max_scale
         return F.normalize(embeddings, p=2, dim=1) * self.scale.clamp_min(min_scale).clamp_max(max_scale)
 

@@ -14,4 +14,4 @@ python train.py --dataset glass \
                 --init_size 0.05 \
                 --num_samples 100000 \
                 --fast_decoding true \
-                --seed 0 \
+                --seed 0
