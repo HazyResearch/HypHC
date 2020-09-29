@@ -6,12 +6,15 @@ This code is the official PyTorch implementation of the NeurIPS 2020 paper: "Fro
 
 #### Installation
 
-This code has been tested with python3.6. 
-First, install the dependencies: 
+This code has been tested with python3.6. First, create a virtual environment (or conda environment) and install the dependencies:
+
+```python3 -m venv hyphc_env```
+
+```source hyphc_env/bin/activate```
 
 ```pip install -r requirements.txt``` 
 
-Then install the ```mst``` and ```unionfind``` packages which are used to decode embeddings into trees and compute the discrete Dasgupta Cost: 
+Then install the ```mst``` and ```unionfind``` packages which are used to decode embeddings into trees and compute the discrete Dasgupta Cost efficiently: 
 
 ```cd mst; python setup.py build_ext --inplace```
 
