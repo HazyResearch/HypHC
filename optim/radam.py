@@ -101,12 +101,10 @@ class RAdam(torch.optim.Adam):
                     exp_avg = state["exp_avg"]
                     exp_avg_sq = state["exp_avg_sq"]
                     # actual step
-                    grad.add_(weight_decay, point)
+                    grad.add_(point, alpha=weight_decay)
                     grad = egrad2rgrad(point, grad)
-                    exp_avg.mul_(betas[0]).add_(1 - betas[0], grad)
-                    exp_avg_sq.mul_(betas[1]).add_(
-                        1 - betas[1], inner(point, grad)
-                    )
+                    exp_avg.mul_(betas[0]).add_(grad, alpha=1 - betas[0])
+                    exp_avg_sq.mul_(betas[1]).add_(inner(point, grad), alpha=1 - betas[1])
                     if amsgrad:
                         max_exp_avg_sq = state["max_exp_avg_sq"]
                         # Maintains the maximum of all 2nd moment running avg. till now

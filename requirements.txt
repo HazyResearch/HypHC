@@ -1,6 +1,5 @@
+cython==0.29.21
 networkx==2.2
-numpy==1.18.2
-scipy==1.2.1
-sknetwork==0.12.1
-torch==1.1.0
+numpy==1.19.2
+torch==1.6.0
 tqdm==4.31.1
