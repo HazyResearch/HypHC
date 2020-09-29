@@ -69,7 +69,7 @@ python train.py
       --dataset DATASET
 ``` 
 
-### Code Examples
+### Examples
 
 We provide examples of training commands for the zoo, iris and glass datasets. For instance, to train HypHC on zoo, run: 
 
