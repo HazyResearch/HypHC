@@ -2,10 +2,8 @@
 
 This code is the official PyTorch implementation of the NeurIPS 2020 paper: "From Trees to Hyperbolic Embeddings and back: Hyperbolic Hierarchical Clustering". 
 
-![alt text](https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif)
-
 <p align="center">
-  <img width="300" height="300" src="https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif">
+  <img width="400" height="400" src="https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif">
 </p>
 
 ## Installation
