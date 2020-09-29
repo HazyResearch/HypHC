@@ -4,6 +4,10 @@ This code is the official PyTorch implementation of the NeurIPS 2020 paper: "Fro
 
 ![alt text](https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif)
 
+<p align="center">
+  <img width="300" height="300" src="https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif">
+</p>
+
 ## Installation
 
 This code has been tested with python3.7.3. First, create a virtual environment (or conda environment) and install the dependencies:
