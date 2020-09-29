@@ -75,7 +75,7 @@ We provide examples of training commands for the zoo, iris and glass datasets. F
 
 ```source examples/run_zoo.sh``` 
 
-This will create an `embedding` directory and save embeddings in a `embedding/zoo/[unique_id]` where the unique id is based on the configuration parameters used to train the model.   
+This will create an `embedding` directory and save training logs, embeddings and the configuration parameters in a `embedding/zoo/[unique_id]` where the unique id is based on the configuration parameters used to train the model.   
 
 ## Citation
 
