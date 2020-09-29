@@ -4,26 +4,29 @@ This code is the official PyTorch implementation of the NeurIPS 2020 paper: "Fro
 
 ![alt text](https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif)
 
-#### Installation
+### Installation
 
-This code has been tested with python3.6. 
-First, install the dependencies: 
+This code has been tested with python3.7.3 First, create a virtual environment (or conda environment) and install the dependencies:
+
+```python3 -m venv hyphc_env```
+
+```source hyphc_env/bin/activate```
 
 ```pip install -r requirements.txt``` 
 
-Then install the ```mst``` and ```unionfind``` packages which are used to decode embeddings into trees and compute the discrete Dasgupta Cost: 
+Then install the ```mst``` and ```unionfind``` packages which are used to decode embeddings into trees and compute the discrete Dasgupta Cost efficiently: 
 
 ```cd mst; python setup.py build_ext --inplace```
 
 ```cd unionfind; python setup.py build_ext --inplace```
 
-#### Download data
+### Download data
 
 ```source download_data.sh```
 
 This will download the zoo, iris and glass datasets from the UCI machine learning repository. Please refer to the paper for the download links of the other datasets used in the paper. 
 
-#### Usage
+### Usage
 
 To use the code, first set environment variables in each shell session:
 
@@ -55,7 +58,7 @@ python train.py
       --dataset DATASET
 ``` 
 
-#### Examples
+### Examples
 
 We provide examples of training commands for the zoo, iris and glass datasets. For instance, to train HypHC on zoo, run: 
 
@@ -63,7 +66,7 @@ We provide examples of training commands for the zoo, iris and glass datasets. F
 
 This will create an `embedding` directory and save embeddings in a `embedding/zoo/[unique_id]` where the unique id is based on the configuration parameters used to train the model.   
 
-#### Citation
+### Citation
 
 If you find this code useful, please cite the following paper:
 ```
