@@ -9,8 +9,8 @@ config_args = {
     "eval_every": 10,
     "patience": 20,
     "optimizer": "RAdam",
-    "save": True,
-    "fast_decoding": True,
+    "save": 1,
+    "fast_decoding": 1,
     "num_samples": -1,
 
     # model

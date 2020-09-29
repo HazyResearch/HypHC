@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 python train.py --dataset zoo \
-                --epochs 200 \
+                --epochs 50 \
                 --batch_size 256 \
                 --learning_rate 1e-3 \
                 --temperature 1e-1 \

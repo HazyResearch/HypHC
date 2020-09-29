@@ -2,7 +2,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source set_env.sh
 python train.py --dataset iris \
-                --epochs 100 \
+                --epochs 50 \
                 --batch_size 512 \
                 --learning_rate 5e-4 \
                 --temperature 5e-2 \

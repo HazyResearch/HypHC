@@ -153,7 +153,6 @@ def sl_np_sort(similarities):
 def sl_np_mst(similarities):
     n = similarities.shape[0]
     # dist_mat = -similarities
-    print("Calculating MST...", flush=True)
     ij, _ = mst.mst(similarities, n)
     uf = unionfind.UnionFind(n)
     uf.merge(ij)

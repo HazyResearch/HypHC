@@ -26,6 +26,8 @@ def train(args):
     # get saving directory
     if args.save:
         save_dir = get_savedir(args)
+        import IPython
+        IPython.embed()
         logging.info("Save directory: " + save_dir)
         save_path = os.path.join(save_dir, "model_{}.pkl".format(args.seed))
         if os.path.exists(save_dir):
@@ -93,7 +95,6 @@ def train(args):
         if (epoch + 1) % args.eval_every == 0:
             model.eval()
             tree = model.decode_tree(fast_decoding=args.fast_decoding)
-
             cost = dasgupta_cost(tree, similarities)
             logging.info("{}:\t{:.4f}".format("Dasgupta's cost", cost))
             if cost < best_cost:
@@ -124,7 +125,6 @@ def train(args):
         # save best embeddings
         logging.info("Saving best model at {}".format(save_path))
         torch.save(best_model, save_path)
-        logger.removeHandler(hdlr)
 
     # evaluation
     model.eval()
@@ -132,6 +132,9 @@ def train(args):
     tree = model.decode_tree(fast_decoding=args.fast_decoding)
     cost = dasgupta_cost(tree, similarities)
     logging.info("{}:\t{:.4f}".format("Dasgupta's cost", cost))
+
+    if args.save:
+        logger.removeHandler(hdlr)
     return
 
 
@@ -140,3 +143,4 @@ if __name__ == "__main__":
     parser = add_flags_from_config(parser, config_args)
     args = parser.parse_args()
     train(args)
+

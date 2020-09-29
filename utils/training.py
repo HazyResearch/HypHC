@@ -31,8 +31,8 @@ def add_flags_from_config(parser, config_dict):
             # Otherwise, default has non-None type; convert x to that type
             else:
                 return type(default)(x)
-
         return func
+
 
     for param in config_dict:
         default = config_dict[param]
@@ -63,3 +63,4 @@ def get_savedir(args):
     dir_hash = hash_dict(args.__dict__)
     save_dir = os.path.join(os.environ["SAVEPATH"], args.dataset, dir_hash)
     return save_dir
+

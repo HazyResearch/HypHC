@@ -52,7 +52,6 @@ python train.py
       --dtype DTYPE
       --rank RANK
       --temperature TEMPERATURE
-      --margin MARGIN
       --init_size INIT_SIZE
       --anneal_every ANNEAL_EVERY
       --anneal_factor ANNEAL_FACTOR
