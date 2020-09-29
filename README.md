@@ -6,7 +6,7 @@ This code is the official PyTorch implementation of the NeurIPS 2020 paper: "Fro
 
 #### Installation
 
-This code has been tested with python3.6. First, create a virtual environment (or conda environment) and install the dependencies:
+This code has been tested with python3.7.3 First, create a virtual environment (or conda environment) and install the dependencies:
 
 ```python3 -m venv hyphc_env```
 
