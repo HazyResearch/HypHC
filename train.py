@@ -26,8 +26,6 @@ def train(args):
     # get saving directory
     if args.save:
         save_dir = get_savedir(args)
-        import IPython
-        IPython.embed()
         logging.info("Save directory: " + save_dir)
         save_path = os.path.join(save_dir, "model_{}.pkl".format(args.seed))
         if os.path.exists(save_dir):
