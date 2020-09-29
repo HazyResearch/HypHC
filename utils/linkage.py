@@ -163,6 +163,12 @@ def sl_np_mst(similarities):
 # sl = sl_np_sort
 sl = sl_np_mst
 
+def sl_from_embeddings(xs, S):
+    xs0 = xs[None, :, :]
+    xs1 = xs[:, None, :]
+    sim_mat = S(xs0, xs1)  # (n, n)
+    return sl(sim_mat.numpy())
+
 
 # @profile
 def nn_merge_uf_fast_np(xs, S, partition_ratio=None, verbose=False):
@@ -233,7 +239,7 @@ def nn_merge_uf_fast(xs, S):
     return uf.tree
 
 
-def test_merge_uf(n=100, gpu=False, cpu=False, numpy=False, python=False, compare=True, **np_args):
+def test_merge_uf(n=100, gpu=False, cpu=False, numpy=False, python=False, linkage=False, compare=True, **np_args):
     d = 2
     xs = np.random.normal(size=(n, d))
     xs = torch.from_numpy(xs)
@@ -286,6 +292,18 @@ def test_merge_uf(n=100, gpu=False, cpu=False, numpy=False, python=False, compar
             print("Results agree:", tree == tree_)
             tree = tree_
 
+    if linkage:
+        print("Testing union find using single linkage MST algorithm")
+        start = time.perf_counter()
+        tree = sl_from_embeddings(xs, lambda x, y: torch.sum(x * y, dim=-1))
+        end = time.perf_counter()
+        print(end - start, "seconds")
+
+        if compare:
+            print("Results agree:", tree == tree_)
+            tree = tree_
+
 
 if __name__ == '__main__':
-    test_merge_uf(n=10000, gpu=False, numpy=True, compare=True, partition_ratio=1.2)
+    # test_merge_uf(n=1000, numpy=True, linkage=True, compare=True, partition_ratio=1.2)
+    test_merge_uf(n=1000, numpy=True, linkage=True, compare=True)

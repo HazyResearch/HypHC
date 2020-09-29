@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from utils.lca import hyp_lca
-from utils.linkage import nn_merge_uf_fast_np
+from utils.linkage import nn_merge_uf_fast_np, sl_from_embeddings
 from utils.poincare import project
 
 
@@ -72,7 +72,7 @@ class HypHC(nn.Module):
         if fast_decoding:
             parents = nn_merge_uf_fast_np(leaves_embeddings, S=sim_fn, partition_ratio=1.2)
         else:
-            parents = nn_merge_uf_fast_np(leaves_embeddings, S=sim_fn)
+            parents = sl_from_embeddings(leaves_embeddings, sim_fn)
         tree = nx.DiGraph()
         for i, j in enumerate(parents[:-1]):
             tree.add_edge(j, i)
