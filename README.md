@@ -4,7 +4,7 @@ This code is the official PyTorch implementation of the NeurIPS 2020 paper:
 > **From Trees to Continuous Embeddings and Back: Hyperbolic Hierarchical Clustering**\
 > Ines Chami, Albert Gu, Vaggos Chatziafratis and Christopher Ré\
 > Stanford University\
-> Paper: TODO(ines): add link
+> Paper: https://arxiv.org/abs/2010.00402
 
 <p align="center">
   <img width="400" height="400" src="https://github.com/HazyResearch/HypHC/blob/master/HypHC.gif">
@@ -79,6 +79,12 @@ This will create an `embedding` directory and save training logs, embeddings and
 ## Citation
 
 If you find this code useful, please cite the following paper:
+
 ```
-TODO(ines): add citation
+@misc{2010.00402,
+  Author = {Ines Chami and Albert Gu and Vaggos Chatziafratis and Christopher Ré},
+  Title = {From Trees to Continuous Embeddings and Back: Hyperbolic Hierarchical Clustering},
+  Year = {2020},
+  Eprint = {arXiv:2010.00402},
+}
 ```
