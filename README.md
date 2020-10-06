@@ -81,10 +81,10 @@ This will create an `embedding` directory and save training logs, embeddings and
 If you find this code useful, please cite the following paper:
 
 ```
-@misc{2010.00402,
-  Author = {Ines Chami and Albert Gu and Vaggos Chatziafratis and Christopher Ré},
-  Title = {From Trees to Continuous Embeddings and Back: Hyperbolic Hierarchical Clustering},
-  Year = {2020},
-  Eprint = {arXiv:2010.00402},
+@article{chami2020trees,
+  title={From Trees to Continuous Embeddings and Back: Hyperbolic Hierarchical Clustering},
+  author={Chami, Ines and Gu, Albert and Chatziafratis, Vaggos and R{\'e}, Christopher},
+  journal={arXiv preprint arXiv:2010.00402},
+  year={2020}
 }
 ```
