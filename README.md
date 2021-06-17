@@ -81,10 +81,15 @@ This will create an `embedding` directory and save training logs, embeddings and
 If you find this code useful, please cite the following paper:
 
 ```
-@article{chami2020trees,
-  title={From Trees to Continuous Embeddings and Back: Hyperbolic Hierarchical Clustering},
-  author={Chami, Ines and Gu, Albert and Chatziafratis, Vaggos and R{\'e}, Christopher},
-  journal={arXiv preprint arXiv:2010.00402},
-  year={2020}
+@inproceedings{NEURIPS2020_ac10ec1a,
+ author = {Chami, Ines and Gu, Albert and Chatziafratis, Vaggos and R\'{e}, Christopher},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
+ pages = {15065--15076},
+ publisher = {Curran Associates, Inc.},
+ title = {From Trees to Continuous Embeddings and Back: Hyperbolic Hierarchical Clustering},
+ url = {https://proceedings.neurips.cc/paper/2020/file/ac10ec1ace51b2d973cd87973a98d3ab-Paper.pdf},
+ volume = {33},
+ year = {2020}
 }
 ```
