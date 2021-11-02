@@ -7,8 +7,7 @@ from tqdm import tqdm
 def samples_triples(n_nodes, num_samples):
     num_samples = int(num_samples)
     all_nodes = np.arange(n_nodes)
-    mesh = np.array(np.meshgrid(all_nodes, all_nodes))
-    pairs = mesh.T.reshape(-1, 2)
+    pairs = np.array(np.meshgrid(all_nodes, all_nodes)).T.reshape(-1,2)
     pairs = pairs[pairs[:, 0] < pairs[:, 1]]
     n_pairs = pairs.shape[0]
     if num_samples < n_pairs:

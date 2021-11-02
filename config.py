@@ -12,7 +12,9 @@ config_args = {
     "save": 1,
     "fast_decoding": 1,
     "num_samples": -1,
-
+    "large_dataset": 0,
+    "data_points": 1,
+    
     # model
     "dtype": "double",
     "rank": 2,

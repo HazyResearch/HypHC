@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # load dataset
     config = json.load(open(os.path.join(args.model_dir, "config.json")))
     config_args = argparse.Namespace(**config)
-    _, y_true, similarities = load_data(config_args.dataset)
+    _, y_true, similarities = load_data(config_args.dataset, config_args.large_dataset)
 
     # build HypHC model
     model = HypHC(similarities.shape[0], config_args.rank, config_args.temperature, config_args.init_size,

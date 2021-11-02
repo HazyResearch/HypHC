@@ -11,7 +11,7 @@ UCI_DATASETS = [
 ]
 
 
-def load_data(dataset, normalize=True):
+def load_data(dataset, large_dataset, normalize=True):
     """Load dataset.
 
     @param dataset: dataset name
@@ -29,9 +29,19 @@ def load_data(dataset, normalize=True):
         x = x / np.linalg.norm(x, axis=1, keepdims=True)
     x0 = x[None, :, :]
     x1 = x[:, None, :]
-    cos = (x0 * x1).sum(-1)
-    similarities = 0.5 * (1 + cos)
-    similarities = np.triu(similarities) + np.triu(similarities).T
+    if large_dataset == 1:
+        cos = np.zeros((x0.shape[1], x0.shape[1]), dtype=float)
+        for i in range(x0.shape[1]):
+            cos[i,:] = (x0*x1[i]).sum(-1)
+        similarities = 0.5 * (1 + cos)
+        cos = None
+        similarities = np.triu(similarities) 
+        similarities +=  np.triu(similarities).T
+    else:
+        cos = (x0 * x1).sum(-1)
+        similarities = 0.5 * (1 + cos)
+        similarities = np.triu(similarities) + np.triu(similarities).T
+
     similarities[np.diag_indices_from(similarities)] = 1.0
     similarities[similarities > 1.0] = 1.0
     return x, y, similarities
@@ -57,6 +67,7 @@ def load_uci_data(dataset):
     start_idx, end_idx, label_idx = ids[dataset]
     with open(data_path, 'r') as f:
         for line in f:
+            line = line.strip("\n")
             split_line = line.split(",")
             
             if len(split_line) >= end_idx - start_idx + 1:
