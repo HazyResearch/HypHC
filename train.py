@@ -55,8 +55,8 @@ def train(args):
         torch.set_default_dtype(torch.float64)
 
     # create dataset
-    x, y_true, similarities = load_data(args.dataset)
-    dataset = HCDataset(x, y_true, similarities, num_samples=args.num_samples)
+    dataset = HCDataset(args.data_points, args.num_samples, args.dataset, args.large_dataset)
+    similarities = dataset.similarities 
     dataloader = data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=8, pin_memory=True)
 
     # create model

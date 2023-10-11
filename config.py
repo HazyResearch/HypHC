@@ -12,7 +12,8 @@ config_args = {
     "save": 1,
     "fast_decoding": 1,
     "num_samples": -1,
-
+    "large_dataset": 0,
+    
     # model
     "dtype": "double",
     "rank": 2,
@@ -24,4 +25,5 @@ config_args = {
 
     # dataset
     "dataset": "zoo",
+    "data_points": 101,
 }
